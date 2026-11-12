@@ -1,0 +1,28 @@
+{
+  "schema": "lexsi.provenance/1",
+  "library": "curatorkit",
+  "version": "0.1.25",
+  "git_sha": null,
+  "created_at": "2026-11-12T14:36:03Z",
+  "base_model": "CohereLabs/tiny-aya-global",
+  "method": "autoheal-kyc-curatorkit",
+  "inputs": [
+    {
+      "kind": "dataset",
+      "ref": "D:\\Progs\\practice\\lexsi_kyc_autoheal\\data\\splits\\split_a.jsonl",
+      "config": "split_a",
+      "provenance": null
+    },
+    {
+      "kind": "dataset",
+      "ref": "D:\\Progs\\practice\\lexsi_kyc_autoheal\\data\\splits\\split_b.jsonl",
+      "config": "split_b",
+      "provenance": null
+    }
+  ],
+  "params": {
+    "pipeline_config_hash": "905a2da3592a44ff",
+    "live": false,
+    "spacy_model": "en_core_web_sm"
+  }
+}

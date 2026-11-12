@@ -1,0 +1,11 @@
+{
+  "case_id": "split_b_fatf_jurisdiction_review_029",
+  "trajectory_id": "traj_split_b_fatf_jurisdiction_review_029_967a49",
+  "verdict": "REVIEW",
+  "customer_name": "David Bennett",
+  "escalation_reasons": [
+    "JURISDICTION_EDD:FATF_GREY_LIST:NG"
+  ],
+  "agent_reason": "David Bennett (NG) [JURISDICTION_EDD:FATF_GREY_LIST:NG] -> REVIEW.",
+  "oracle_verdict": "REVIEW"
+}

@@ -1,0 +1,94 @@
+{
+  "pipeline_config_hash": "905a2da3592a44ff",
+  "run_timestamp": "2026-11-12T14:36:03.849340Z",
+  "source_files": [],
+  "stage_counts": {
+    "KYCSeedReader": {
+      "output_count": 529,
+      "rejected_count": 0
+    },
+    "_WatchlistSafeSecretsGate": {
+      "input_count": 529,
+      "output_count": 527,
+      "probe_recovered": 0,
+      "rejected_count": 2
+    },
+    "_CachedSysPromptPIIPseudonymizer": {
+      "input_count": 527,
+      "output_count": 527
+    },
+    "SchemaGate": {
+      "input_count": 527,
+      "output_count": 527,
+      "probe_recovered": 0,
+      "rejected_count": 0
+    },
+    "OfflineSafeDiversityGate": {
+      "input_count": 527,
+      "output_count": 527,
+      "probe_recovered": 0,
+      "rejected_count": 0
+    },
+    "MessagesExporter": {
+      "exported_count": 527
+    },
+    "DPOExporter": {
+      "exported_count": 527
+    },
+    "GRPOExporter": {
+      "exported_count": 527
+    }
+  },
+  "rejected_breakdown": {
+    "secret_detected:Hex High Entropy String": 2
+  },
+  "dedup_stats": {},
+  "minhash_threshold": null,
+  "sampler_stats": null,
+  "token_stats": {
+    "total_prompt_tokens": 0,
+    "total_completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "wall_clock_seconds": 51.032,
+  "tool_versions": {
+    "curatorkit": "0.1.25",
+    "python": "3.12.15"
+  },
+  "diversity_stats": null,
+  "diagnostic_stats": null,
+  "diagnostic_files": [],
+  "provenance": {
+    "schema": "lexsi.provenance/1",
+    "library": "curatorkit",
+    "version": "0.1.25",
+    "git_sha": null,
+    "created_at": "2026-11-12T14:36:03Z",
+    "base_model": "CohereLabs/tiny-aya-global",
+    "method": "autoheal-kyc-curatorkit",
+    "inputs": [
+      {
+        "kind": "dataset",
+        "ref": "D:\\Progs\\practice\\lexsi_kyc_autoheal\\data\\splits\\split_a.jsonl",
+        "config": "split_a",
+        "provenance": null
+      },
+      {
+        "kind": "dataset",
+        "ref": "D:\\Progs\\practice\\lexsi_kyc_autoheal\\data\\splits\\split_b.jsonl",
+        "config": "split_b",
+        "provenance": null
+      }
+    ],
+    "params": {
+      "pipeline_config_hash": "905a2da3592a44ff",
+      "live": false,
+      "spacy_model": "en_core_web_sm"
+    }
+  },
+  "export_file_counts": {
+    "sft_messages.jsonl": 207,
+    "dpo.jsonl": 160,
+    "grpo.jsonl": 160
+  }
+}

@@ -1,0 +1,478 @@
+{
+  "mode": "offline_stub",
+  "tool_mode": "prompt",
+  "baseline_model": "deterministic_stub_baseline",
+  "candidate_model": "deterministic_stub_healed",
+  "split": "D:\\Progs\\practice\\lexsi_kyc_autoheal\\data\\splits\\split_c.jsonl",
+  "num_cases": 60,
+  "trials": 1,
+  "baseline_kpis": {
+    "num_cases": 60,
+    "verdict_accuracy": 0.6667,
+    "first_try_tool_accuracy": 0.8,
+    "loop_collapse_rate": 0.0667,
+    "dangling_tool_rate": 0.0,
+    "hallucination_rate": 0.0667,
+    "terminal_json_schema_rate": 1.0,
+    "abstain_accuracy": 0.0,
+    "mean_tool_calls": 3.15
+  },
+  "healed_kpis": {
+    "num_cases": 60,
+    "verdict_accuracy": 1.0,
+    "first_try_tool_accuracy": 1.0,
+    "loop_collapse_rate": 0.0,
+    "dangling_tool_rate": 0.0,
+    "hallucination_rate": 0.0,
+    "terminal_json_schema_rate": 1.0,
+    "abstain_accuracy": 1.0,
+    "mean_tool_calls": 3.3
+  },
+  "auditkit_summary": {
+    "baseline": "Agent eval   Mode: recorded   Cases: 60\nVerified success: 40/60 (40/60 decided)   Failure: 20   Unknown outcome: 0   Error: 0   Over budget: 0\nEndpoint errors: 0\nStatus: completed 60\nTrace coverage: full 56, tool names only 0, answer only 4\nTool validity: 48/52 eligible\nMedian latency: n/a          Agent calls: 0",
+    "healed": "Agent eval   Mode: recorded   Cases: 60\nVerified success: 60/60 (60/60 decided)   Failure: 0   Unknown outcome: 0   Error: 0   Over budget: 0\nEndpoint errors: 0\nStatus: completed 60\nTrace coverage: full 56, tool names only 0, answer only 4\nTool validity: 56/56 eligible\nMedian latency: n/a          Agent calls: 0"
+  },
+  "custom_predicates": {
+    "baseline": {
+      "cip_abstention_invariant": 0.9333,
+      "loop_free_invariant": 0.9333,
+      "required_tool_coverage_invariant": 0.7833
+    },
+    "healed": {
+      "cip_abstention_invariant": 1.0,
+      "loop_free_invariant": 1.0,
+      "required_tool_coverage_invariant": 1.0
+    }
+  },
+  "reliability": {
+    "baseline": {
+      "n_trials": 1,
+      "independent": false,
+      "status": "unknown",
+      "reason": "single trial; nothing to compare",
+      "flags": [
+        "independence unconfirmed (no reset-per-trial contract); counts shown, the estimators are not an independence-backed reliability claim"
+      ],
+      "pass_at_k_mean": null,
+      "pass_hat_k_mean": null
+    },
+    "healed": {
+      "n_trials": 1,
+      "independent": false,
+      "status": "unknown",
+      "reason": "single trial; nothing to compare",
+      "flags": [
+        "independence unconfirmed (no reset-per-trial contract); counts shown, the estimators are not an independence-backed reliability claim"
+      ],
+      "pass_at_k_mean": null,
+      "pass_hat_k_mean": null
+    }
+  },
+  "perf": {
+    "baseline": {
+      "concurrency": 1,
+      "latency_ms": {
+        "count": 60,
+        "mean": 43.86666666666667,
+        "min": 4.0,
+        "max": 225.0,
+        "p50": 30.0,
+        "p95": 97.0,
+        "p99": 187.0,
+        "std": 38.95316275848328
+      },
+      "throughput": {
+        "rps": 22.796352583586625,
+        "total_requests": 60,
+        "total_time_ms": 2632.0
+      }
+    },
+    "healed": {
+      "concurrency": 1,
+      "latency_ms": {
+        "count": 60,
+        "mean": 44.61666666666667,
+        "min": 5.0,
+        "max": 231.0,
+        "p50": 31.0,
+        "p95": 106.0,
+        "p99": 186.0,
+        "std": 39.34594077608967
+      },
+      "throughput": {
+        "rps": 22.413149047441166,
+        "total_requests": 60,
+        "total_time_ms": 2677.0
+      }
+    }
+  },
+  "curatorkit_evidence": {
+    "manifest_loaded": true,
+    "joined_episodes": 0,
+    "curated_train_case_ids_count": 160,
+    "split_zero_leakage_from_curated": true
+  },
+  "sidecar_path": "D:\\Progs\\practice\\lexsi_kyc_autoheal\\artifacts\\runs\\eval_sidecar.jsonl",
+  "paired_bootstrap": {
+    "verdict_pass": {
+      "n": 60,
+      "mean_baseline": 0.666667,
+      "mean_candidate": 1.0,
+      "delta": 0.333333,
+      "p_value": 0.000999,
+      "significant": true
+    },
+    "first_try_tool_pass": {
+      "n": 60,
+      "mean_baseline": 0.8,
+      "mean_candidate": 1.0,
+      "delta": 0.2,
+      "p_value": 0.000999,
+      "significant": true
+    },
+    "no_loop": {
+      "n": 60,
+      "mean_baseline": 0.933333,
+      "mean_candidate": 1.0,
+      "delta": 0.066667,
+      "p_value": 0.055944,
+      "significant": false
+    },
+    "schema_valid": {
+      "n": 60,
+      "mean_baseline": 1.0,
+      "mean_candidate": 1.0,
+      "delta": 0.0,
+      "p_value": 1.0,
+      "significant": false
+    },
+    "composite_pass": {
+      "n": 60,
+      "mean_baseline": 0.466667,
+      "mean_candidate": 1.0,
+      "delta": 0.533333,
+      "p_value": 0.000999,
+      "significant": true
+    }
+  },
+  "bfcl_general_regression": {
+    "num_samples": 25,
+    "tool_mode": "prompt",
+    "categories": [
+      "multiple",
+      "simple"
+    ],
+    "f1_metric_key": "tool_call_f1_custom_9b2ab1bb",
+    "baseline_tool_call_f1": 0.48,
+    "baseline_stats": {
+      "tool_call_precision_custom_9b2ab1bb": {
+        "name": "tool_call_precision_custom_9b2ab1bb",
+        "count": 25,
+        "mean": 0.48,
+        "stderr": 0.09991996797437439,
+        "std": 0.4995998398718719,
+        "min": 0.0,
+        "max": 1.0,
+        "values": [
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      "tool_call_recall_custom_9b2ab1bb": {
+        "name": "tool_call_recall_custom_9b2ab1bb",
+        "count": 25,
+        "mean": 0.48,
+        "stderr": 0.09991996797437439,
+        "std": 0.4995998398718719,
+        "min": 0.0,
+        "max": 1.0,
+        "values": [
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      "tool_call_f1_custom_9b2ab1bb": {
+        "name": "tool_call_f1_custom_9b2ab1bb",
+        "count": 25,
+        "mean": 0.48,
+        "stderr": 0.09991996797437439,
+        "std": 0.4995998398718719,
+        "min": 0.0,
+        "max": 1.0,
+        "values": [
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      "tool_call_exact_custom_9b2ab1bb": {
+        "name": "tool_call_exact_custom_9b2ab1bb",
+        "count": 25,
+        "mean": 0.48,
+        "stderr": 0.09991996797437439,
+        "std": 0.4995998398718719,
+        "min": 0.0,
+        "max": 1.0,
+        "values": [
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    "candidate_tool_call_f1": 1.0,
+    "delta_tool_call_f1": 0.52,
+    "candidate_stats": {
+      "tool_call_precision_custom_9b2ab1bb": {
+        "name": "tool_call_precision_custom_9b2ab1bb",
+        "count": 25,
+        "mean": 1.0,
+        "stderr": 0.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "tool_call_recall_custom_9b2ab1bb": {
+        "name": "tool_call_recall_custom_9b2ab1bb",
+        "count": 25,
+        "mean": 1.0,
+        "stderr": 0.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "tool_call_f1_custom_9b2ab1bb": {
+        "name": "tool_call_f1_custom_9b2ab1bb",
+        "count": 25,
+        "mean": 1.0,
+        "stderr": 0.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "tool_call_exact_custom_9b2ab1bb": {
+        "name": "tool_call_exact_custom_9b2ab1bb",
+        "count": 25,
+        "mean": 1.0,
+        "stderr": 0.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "bootstrap": {
+      "n": 25,
+      "mean_baseline": 0.48,
+      "mean_candidate": 1.0,
+      "delta": 0.52,
+      "p_value": 0.001996,
+      "significant": true
+    }
+  },
+  "deployment_gate": {
+    "approved": true,
+    "reasons": [
+      "approved: no regression on task or trajectory"
+    ],
+    "task_delta": 0.3333,
+    "trajectory_delta": 0.0511
+  }
+}

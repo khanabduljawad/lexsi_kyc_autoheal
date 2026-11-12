@@ -1,0 +1,11 @@
+{
+  "case_id": "split_b_abstain_missing_cip_072",
+  "trajectory_id": "traj_split_b_abstain_missing_cip_072_97219b",
+  "verdict": "REVIEW",
+  "customer_name": "Oliver Lindqvist",
+  "escalation_reasons": [
+    "CIP_INCOMPLETE"
+  ],
+  "agent_reason": "late",
+  "oracle_verdict": "REVIEW"
+}

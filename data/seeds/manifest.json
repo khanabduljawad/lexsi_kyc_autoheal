@@ -1,0 +1,11 @@
+{
+  "sanctions_records": 6000,
+  "sahith_ofac_included": 1000,
+  "export_control_records": 2064,
+  "pep_records": 1800,
+  "crypto_wallets": 949,
+  "sanctions_match_prompts": 140,
+  "sovereign_forger_kyc": 5,
+  "synthetic_benign_entities": 250,
+  "bfcl_subset": 25
+}

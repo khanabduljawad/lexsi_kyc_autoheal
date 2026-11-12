@@ -1,0 +1,11 @@
+{
+  "case_id": "split_b_fatf_jurisdiction_review_044",
+  "trajectory_id": "traj_split_b_fatf_jurisdiction_review_044_3f59ff",
+  "verdict": "REVIEW",
+  "customer_name": "Marcus Thorne",
+  "escalation_reasons": [
+    "JURISDICTION_EDD:FATF_GREY_LIST:CD"
+  ],
+  "agent_reason": "Marcus Thorne (CD) [JURISDICTION_EDD:FATF_GREY_LIST:CD] -> REVIEW.",
+  "oracle_verdict": "REVIEW"
+}

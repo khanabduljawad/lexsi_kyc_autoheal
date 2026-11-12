@@ -1,0 +1,57 @@
+# AutoHeal-KYC Global DECIDE, CuratorKIT, and Self-Healing Configuration
+# Keep default_model null so AgentTune GraphRunner/RouterStage runs rules-only
+# transitions deterministically without loading HF weights onto CPU.
+default_model: null
+
+models:
+  student_base: CohereLabs/tiny-aya-global
+  student_comparison: CohereLabs/aya-expanse-8b
+  student_tool_call_mode: prompt
+  student_enable_thinking: false
+  teacher_api: openai/Qwen/Qwen3-235B-A22B-Instruct-2507
+  teacher_api_base: https://router.huggingface.co/v1
+  cross_family_judge: openai/deepseek-ai/DeepSeek-V3.2
+
+audit:
+  enabled: true
+  output_dir: artifacts/audit_logs
+  path: artifacts/audit_logs/kyc_audit.jsonl
+  log_file: artifacts/audit_logs/kyc_audit.jsonl
+
+agentic:
+  max_steps: 6
+  tool_isolation: false  # enable explicitly via KYCAgentRunner(isolate_tools=True) or isolation smoke test
+  tool_timeout_s: 30.0
+  watchlist_db: data/watchlists.db
+  pending_reviews_dir: artifacts/pending_reviews
+  runs_dir: artifacts/runs
+  dpo_dir: artifacts/dpo_pairs
+  curated_dir: artifacts/curated
+
+curatorkit:
+  output_dir: artifacts/curated
+  spacy_model: en_core_web_sm
+  faker_seed: 42
+  min_tokens: 8
+  max_tokens: 2048
+  similarity_threshold: 0.94
+  embedding_model: sentence-transformers/all-MiniLM-L6-v2
+  teacher_model: Qwen/Qwen3-235B-A22B-Instruct-2507
+  teacher_api_base: https://router.huggingface.co/v1
+
+closed_loop:
+  total_failures_threshold: 12
+  min_examples_ready: 12
+  failure_rate_threshold: 0.20
+  min_samples_for_gate: 30
+  significance_level: 0.05
+  min_improvement: 0.03
+  max_revisits: 3
+  retrain:
+    method: agenttune_dpo
+    lora_r: 16
+    lora_alpha: 32
+    target_modules: all-linear
+    learning_rate: 5.0e-5
+    beta: 0.1
+    max_steps: 150

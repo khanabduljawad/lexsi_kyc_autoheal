@@ -1,0 +1,11 @@
+{
+  "case_id": "split_b_fatf_jurisdiction_review_005",
+  "trajectory_id": "traj_split_b_fatf_jurisdiction_review_005_ada3c5",
+  "verdict": "REVIEW",
+  "customer_name": "Marcus Bennett",
+  "escalation_reasons": [
+    "JURISDICTION_EDD:FATF_BLACK_LIST+OFAC_EMBARGO:IR"
+  ],
+  "agent_reason": "Marcus Bennett (IR) [JURISDICTION_EDD:FATF_BLACK_LIST+OFAC_EMBARGO:IR] -> REVIEW.",
+  "oracle_verdict": "REVIEW"
+}

@@ -1,0 +1,2223 @@
+[
+  {
+    "input": "Find the area of a triangle with a base of 10 units and height of 5 units.",
+    "target": null,
+    "id": "simple_0",
+    "task": "bfcl_simple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "simple_0",
+      "bfcl_category": "simple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "calculate_triangle_area",
+          "description": "Calculate the area of a triangle given its base and height.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "base",
+              "height"
+            ],
+            "properties": {
+              "base": {
+                "type": "integer",
+                "description": "The base of the triangle."
+              },
+              "height": {
+                "type": "integer",
+                "description": "The height of the triangle."
+              },
+              "unit": {
+                "type": "string",
+                "description": "The unit of measure (defaults to 'units' if not specified)"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "calculate_triangle_area",
+          "arguments": {
+            "base": [
+              10
+            ],
+            "height": [
+              5
+            ],
+            "unit": [
+              "units",
+              ""
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "Calculate the factorial of 5 using math functions.",
+    "target": null,
+    "id": "simple_1",
+    "task": "bfcl_simple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "simple_1",
+      "bfcl_category": "simple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "math.factorial",
+          "description": "Calculate the factorial of a given number.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "number"
+            ],
+            "properties": {
+              "number": {
+                "type": "integer",
+                "description": "The number for which factorial needs to be calculated."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "math.factorial",
+          "arguments": {
+            "number": [
+              5
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "Calculate the hypotenuse of a right triangle given the lengths of the other two sides as 4 and 5.",
+    "target": null,
+    "id": "simple_2",
+    "task": "bfcl_simple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "simple_2",
+      "bfcl_category": "simple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "math.hypot",
+          "description": "Calculate the Euclidean norm, sqrt(sum(squares)), the length of the vector from the origin to point (x, y) which is the hypotenuse of the right triangle.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "x",
+              "y"
+            ],
+            "properties": {
+              "x": {
+                "type": "integer",
+                "description": "The x-coordinate value."
+              },
+              "y": {
+                "type": "integer",
+                "description": "The y-coordinate value."
+              },
+              "z": {
+                "type": "integer",
+                "description": "Optional. The z-coordinate value. Default is 0."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "math.hypot",
+          "arguments": {
+            "x": [
+              4
+            ],
+            "y": [
+              5
+            ],
+            "z": [
+              "",
+              0
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "Find the roots of a quadratic equation with coefficients a=1, b=-3, c=2.",
+    "target": null,
+    "id": "simple_3",
+    "task": "bfcl_simple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "simple_3",
+      "bfcl_category": "simple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "algebra.quadratic_roots",
+          "description": "Find the roots of a quadratic equation ax^2 + bx + c = 0.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "a",
+              "b",
+              "c"
+            ],
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": "Coefficient of x^2."
+              },
+              "b": {
+                "type": "integer",
+                "description": "Coefficient of x."
+              },
+              "c": {
+                "type": "integer",
+                "description": "Constant term."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "algebra.quadratic_roots",
+          "arguments": {
+            "a": [
+              1
+            ],
+            "b": [
+              -3
+            ],
+            "c": [
+              2
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "Solve a quadratic equation where a=2, b=6, and c=5",
+    "target": null,
+    "id": "simple_4",
+    "task": "bfcl_simple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "simple_4",
+      "bfcl_category": "simple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "solve_quadratic_equation",
+          "description": "Function solves the quadratic equation and returns its roots.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "a",
+              "b",
+              "c"
+            ],
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": "Coefficient of x squared"
+              },
+              "b": {
+                "type": "integer",
+                "description": "Coefficient of x"
+              },
+              "c": {
+                "type": "integer",
+                "description": "Constant term in the quadratic equation."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "solve_quadratic_equation",
+          "arguments": {
+            "a": [
+              2
+            ],
+            "b": [
+              6
+            ],
+            "c": [
+              5
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "Find all the roots of a quadratic equation given coefficients a = 3, b = -11, and c = -4.",
+    "target": null,
+    "id": "simple_5",
+    "task": "bfcl_simple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "simple_5",
+      "bfcl_category": "simple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "solve_quadratic",
+          "description": "Solve a quadratic equation given coefficients a, b, and c. If optional 'root_type' is 'real', the function will only return real roots. If not specified, function may return complex roots.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "a",
+              "b",
+              "c"
+            ],
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": "The coefficient of the squared term in the quadratic equation."
+              },
+              "b": {
+                "type": "integer",
+                "description": "The coefficient of the linear term in the quadratic equation."
+              },
+              "c": {
+                "type": "integer",
+                "description": "The constant term in the quadratic equation."
+              },
+              "root_type": {
+                "type": "string",
+                "description": "The type of roots to return: 'real' for real roots, 'all' for both real and complex roots. Default value is 'real'."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "solve_quadratic",
+          "arguments": {
+            "a": [
+              3
+            ],
+            "b": [
+              -11
+            ],
+            "c": [
+              -4
+            ],
+            "root_type": [
+              "all"
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "What are the roots of the quadratic equation where a=2, b=5 and c=3 ?",
+    "target": null,
+    "id": "simple_6",
+    "task": "bfcl_simple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "simple_6",
+      "bfcl_category": "simple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "solve_quadratic",
+          "description": "Find the roots of a quadratic equation. Returns both roots.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "a",
+              "b",
+              "c"
+            ],
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": "Coefficient of x\u00b2."
+              },
+              "b": {
+                "type": "integer",
+                "description": "Coefficient of x."
+              },
+              "c": {
+                "type": "integer",
+                "description": "Constant term."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "solve_quadratic",
+          "arguments": {
+            "a": [
+              2
+            ],
+            "b": [
+              5
+            ],
+            "c": [
+              3
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "What is the circumference of a circle with a radius of 4 inches?",
+    "target": null,
+    "id": "simple_7",
+    "task": "bfcl_simple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "simple_7",
+      "bfcl_category": "simple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "calculate_circumference",
+          "description": "Calculates the circumference of a circle with a given radius.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "radius"
+            ],
+            "properties": {
+              "radius": {
+                "type": "integer",
+                "description": "The radius of the circle in the unit given."
+              },
+              "unit": {
+                "type": "string",
+                "description": "The unit of measurement for the radius. Default is 'cm'."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "calculate_circumference",
+          "arguments": {
+            "radius": [
+              4
+            ],
+            "unit": [
+              "inches",
+              "in"
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "What's the area of a circle with a radius of 10?",
+    "target": null,
+    "id": "simple_8",
+    "task": "bfcl_simple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "simple_8",
+      "bfcl_category": "simple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "geometry.area_circle",
+          "description": "Calculate the area of a circle given the radius.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "radius"
+            ],
+            "properties": {
+              "radius": {
+                "type": "integer",
+                "description": "The radius of the circle."
+              },
+              "units": {
+                "type": "string",
+                "description": "The units in which the radius is measured (defaults to 'meters')."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "geometry.area_circle",
+          "arguments": {
+            "radius": [
+              10
+            ],
+            "units": [
+              "meters",
+              ""
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "Calculate the area of a circle with a radius of 5 units.",
+    "target": null,
+    "id": "simple_9",
+    "task": "bfcl_simple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "simple_9",
+      "bfcl_category": "simple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "geometry.calculate_area_circle",
+          "description": "Calculate the area of a circle given its radius.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "radius"
+            ],
+            "properties": {
+              "radius": {
+                "type": "integer",
+                "description": "The radius of the circle."
+              },
+              "unit": {
+                "type": "string",
+                "description": "The measurement unit of the radius (optional parameter, default is 'units')."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "geometry.calculate_area_circle",
+          "arguments": {
+            "radius": [
+              5
+            ],
+            "unit": [
+              "units",
+              ""
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "Calculate the area of a right-angled triangle given the lengths of its base and height as 6cm and 10cm.",
+    "target": null,
+    "id": "simple_10",
+    "task": "bfcl_simple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "simple_10",
+      "bfcl_category": "simple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "calculate_area",
+          "description": "Calculate the area of a right-angled triangle given the lengths of its base and height.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "base",
+              "height"
+            ],
+            "properties": {
+              "base": {
+                "type": "integer",
+                "description": "The length of the base of the right-angled triangle."
+              },
+              "height": {
+                "type": "integer",
+                "description": "The height of the right-angled triangle."
+              },
+              "unit": {
+                "type": "string",
+                "description": "The unit of measure used. Defaults to 'cm'."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "calculate_area",
+          "arguments": {
+            "base": [
+              6
+            ],
+            "height": [
+              10
+            ],
+            "unit": [
+              "cm",
+              ""
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "What is the area of a triangle with base of 10 units and height of 5 units?",
+    "target": null,
+    "id": "simple_11",
+    "task": "bfcl_simple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "simple_11",
+      "bfcl_category": "simple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "calculate_triangle_area",
+          "description": "Calculate the area of a triangle using its base and height.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "base",
+              "height"
+            ],
+            "properties": {
+              "base": {
+                "type": "integer",
+                "description": "The length of the base of the triangle."
+              },
+              "height": {
+                "type": "integer",
+                "description": "The height of the triangle from the base."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "calculate_triangle_area",
+          "arguments": {
+            "base": [
+              10
+            ],
+            "height": [
+              5
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "Calculate the circumference of a circle with radius 3",
+    "target": null,
+    "id": "simple_12",
+    "task": "bfcl_simple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "simple_12",
+      "bfcl_category": "simple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "geometry.circumference",
+          "description": "Calculate the circumference of a circle given the radius.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "radius"
+            ],
+            "properties": {
+              "radius": {
+                "type": "integer",
+                "description": "The radius of the circle."
+              },
+              "units": {
+                "type": "string",
+                "description": "Units for the output circumference measurement. Default is 'cm'."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "geometry.circumference",
+          "arguments": {
+            "radius": [
+              3
+            ],
+            "units": [
+              "cm",
+              ""
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "Can I find the dimensions and properties of a triangle, if I know its three sides are 5 units, 4 units and 3 units long?",
+    "target": null,
+    "id": "multiple_0",
+    "task": "bfcl_multiple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "multiple_0",
+      "bfcl_category": "multiple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "triangle_properties.get",
+          "description": "Retrieve the dimensions, such as area and perimeter, of a triangle if lengths of three sides are given.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "side1",
+              "side2",
+              "side3"
+            ],
+            "properties": {
+              "side1": {
+                "type": "integer",
+                "description": "The length of first side of the triangle."
+              },
+              "side2": {
+                "type": "integer",
+                "description": "The length of second side of the triangle."
+              },
+              "side3": {
+                "type": "integer",
+                "description": "The length of third side of the triangle."
+              },
+              "get_area": {
+                "type": "boolean",
+                "description": "A flag to determine whether to calculate the area of triangle. Default is true.",
+                "default": true,
+                "optional": true
+              },
+              "get_perimeter": {
+                "type": "boolean",
+                "description": "A flag to determine whether to calculate the perimeter of triangle. Default is true.",
+                "default": true,
+                "optional": true
+              },
+              "get_angles": {
+                "type": "boolean",
+                "description": "A flag to determine whether to calculate the internal angles of triangle. Default is true.",
+                "default": true,
+                "optional": true
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "circle_properties.get",
+          "description": "Retrieve the dimensions, such as area and circumference, of a circle if radius is given.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "radius"
+            ],
+            "properties": {
+              "radius": {
+                "type": "number",
+                "description": "The length of radius of the circle."
+              },
+              "get_area": {
+                "type": "boolean",
+                "description": "A flag to determine whether to calculate the area of circle. Default is true.",
+                "default": true,
+                "optional": true
+              },
+              "get_circumference": {
+                "type": "boolean",
+                "description": "A flag to determine whether to calculate the circumference of circle. Default is true.",
+                "default": true,
+                "optional": true
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "triangle_properties.get",
+          "arguments": {
+            "side1": [
+              5
+            ],
+            "side2": [
+              4
+            ],
+            "side3": [
+              3
+            ],
+            "get_area": [
+              "",
+              true
+            ],
+            "get_perimeter": [
+              "",
+              true
+            ],
+            "get_angles": [
+              "",
+              true
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "Calculate the area of a triangle, given the lengths of its three sides: 3, 4, and 5.",
+    "target": null,
+    "id": "multiple_1",
+    "task": "bfcl_multiple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "multiple_1",
+      "bfcl_category": "multiple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "math.triangle_area_heron",
+          "description": "Calculates the area of a triangle using Heron's formula, given the lengths of its three sides.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "side1",
+              "side2",
+              "side3"
+            ],
+            "properties": {
+              "side1": {
+                "type": "integer",
+                "description": "Length of the first side of the triangle."
+              },
+              "side2": {
+                "type": "integer",
+                "description": "Length of the second side of the triangle."
+              },
+              "side3": {
+                "type": "integer",
+                "description": "Length of the third side of the triangle."
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "math.circle_area",
+          "description": "Calculates the area of a circle given its radius.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "radius"
+            ],
+            "properties": {
+              "radius": {
+                "type": "number",
+                "description": "The radius of the circle."
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "math.triangle_area_base_height",
+          "description": "Calculates the area of a triangle using the formula (1/2)base*height.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "base",
+              "height"
+            ],
+            "properties": {
+              "base": {
+                "type": "number",
+                "description": "The base length of the triangle."
+              },
+              "height": {
+                "type": "number",
+                "description": "The height of the triangle."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "math.triangle_area_heron",
+          "arguments": {
+            "side1": [
+              3
+            ],
+            "side2": [
+              4
+            ],
+            "side3": [
+              5
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "What is the capital of Brazil?",
+    "target": null,
+    "id": "multiple_2",
+    "task": "bfcl_multiple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "multiple_2",
+      "bfcl_category": "multiple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "country_info.largest_city",
+          "description": "Fetch the largest city of a specified country.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "country"
+            ],
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": "Name of the country."
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "country_info.capital",
+          "description": "Fetch the capital city of a specified country.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "country"
+            ],
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": "Name of the country."
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "country_info.population",
+          "description": "Fetch the current population of a specified country.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "country"
+            ],
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": "Name of the country."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "country_info.capital",
+          "arguments": {
+            "country": [
+              "Brazil"
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "Compute the Euclidean distance between two points A(3,4) and B(1,2).",
+    "target": null,
+    "id": "multiple_3",
+    "task": "bfcl_multiple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "multiple_3",
+      "bfcl_category": "multiple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "EuclideanDistance.calculate",
+          "description": "Calculate the Euclidean distance between two points.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "pointA",
+              "pointB"
+            ],
+            "properties": {
+              "pointA": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "Coordinates for Point A."
+              },
+              "pointB": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "Coordinates for Point B."
+              },
+              "rounding": {
+                "type": "integer",
+                "description": "Optional: The number of decimals to round off the result. Default 0"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "angleToXAxis.calculate",
+          "description": "Calculate the angle between two points with respect to x-axis.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "pointA",
+              "pointB"
+            ],
+            "properties": {
+              "pointA": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "Coordinates for Point A."
+              },
+              "pointB": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "Coordinates for Point B."
+              },
+              "rounding": {
+                "type": "integer",
+                "description": "Optional: The number of decimals to round off the result. Default 0"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "EuclideanDistance.calculate",
+          "arguments": {
+            "pointA": [
+              [
+                3,
+                4
+              ]
+            ],
+            "pointB": [
+              [
+                1,
+                2
+              ]
+            ],
+            "rounding": [
+              "",
+              0
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "Can you calculate the displacement of a car moving at an initial speed of 20 m/s and then accelerates at 10 m/s^2 for 5 seconds? (assuming a straight line motion)",
+    "target": null,
+    "id": "multiple_4",
+    "task": "bfcl_multiple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "multiple_4",
+      "bfcl_category": "multiple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "kinematics.calculate_displacement",
+          "description": "Calculate displacement based on initial speed, acceleration, and time interval for a motion along a straight line.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "initial_speed",
+              "acceleration",
+              "time"
+            ],
+            "properties": {
+              "initial_speed": {
+                "type": "integer",
+                "description": "The initial speed of the moving object in m/s."
+              },
+              "acceleration": {
+                "type": "integer",
+                "description": "The rate of change of speed, m/s^2."
+              },
+              "time": {
+                "type": "integer",
+                "description": "The time interval during which the acceleration is applied, in seconds."
+              },
+              "rounding": {
+                "type": "integer",
+                "description": "The number of decimals to round off the result (optional).",
+                "default": 2
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "kinematics.calculate_final_speed",
+          "description": "Calculate the final speed of an object that starts from an initial speed and then accelerates for a certain duration.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "initial_speed",
+              "acceleration",
+              "time"
+            ],
+            "properties": {
+              "initial_speed": {
+                "type": "number",
+                "description": "The initial speed of the moving object in m/s."
+              },
+              "acceleration": {
+                "type": "number",
+                "description": "The rate of change of speed, m/s^2."
+              },
+              "time": {
+                "type": "number",
+                "description": "The time interval during which the acceleration is applied, in seconds."
+              },
+              "rounding": {
+                "type": "integer",
+                "description": "The number of decimals to round off the result (optional).",
+                "default": 2
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "kinematics.calculate_displacement",
+          "arguments": {
+            "initial_speed": [
+              20
+            ],
+            "acceleration": [
+              10
+            ],
+            "time": [
+              5
+            ],
+            "rounding": [
+              "",
+              2
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "What is the wind speed and temperature in location given by coordinates 46.603354,1.8883340 on December 13, 2019?",
+    "target": null,
+    "id": "multiple_5",
+    "task": "bfcl_multiple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "multiple_5",
+      "bfcl_category": "multiple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "weather.get_by_city_date",
+          "description": "Retrieves the historical weather data based on city and date.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "city",
+              "date"
+            ],
+            "properties": {
+              "city": {
+                "type": "string",
+                "description": "The city for which to retrieve the weather."
+              },
+              "date": {
+                "type": "string",
+                "format": "date",
+                "description": "The date for which to retrieve the historical weather data in the format YYYY-MM-DD."
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "weather.get_forecast_by_coordinates",
+          "description": "Get the weather forecast for a specific geographical coordinates.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "coordinates"
+            ],
+            "properties": {
+              "coordinates": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "The geographical coordinates for which to retrieve the weather. The first element of the tuple is the latitude and the second is the longitude."
+              },
+              "days_ahead": {
+                "type": "integer",
+                "description": "Number of days to forecast from current date (optional, default is 7)."
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "weather.get_by_coordinates_date",
+          "description": "Retrieves the historical weather data based on coordinates and date.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "coordinates",
+              "date"
+            ],
+            "properties": {
+              "coordinates": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "The geographical coordinates for which to retrieve the weather. The first element of the tuple is the latitude and the second is the longitude."
+              },
+              "date": {
+                "type": "string",
+                "format": "date",
+                "description": "The date for which to retrieve the historical weather data in the format YYYY-MM-DD."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "weather.get_by_coordinates_date",
+          "arguments": {
+            "coordinates": [
+              [
+                46.603354,
+                1.888334
+              ]
+            ],
+            "date": [
+              "2019-12-13"
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "Calculate the capacitance of a parallel plate capacitor where the area of the plate is 10 square meters, the distance between plates is 0.01 meters and the dielectric constant K is 1.0.",
+    "target": null,
+    "id": "multiple_6",
+    "task": "bfcl_multiple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "multiple_6",
+      "bfcl_category": "multiple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "resistance_calculator.calculate",
+          "description": "Calculate the resistance of an electrical circuit based on current and voltage.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "I",
+              "V"
+            ],
+            "properties": {
+              "I": {
+                "type": "number",
+                "description": "The electric current flowing in Amperes."
+              },
+              "V": {
+                "type": "number",
+                "description": "The voltage difference in Volts."
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "capacitance_calculator.calculate",
+          "description": "Calculate the capacitance of a parallel plate capacitor based on the area, distance and dielectric constant using the equation C = \u03b5\u2080KA/d.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "A",
+              "d"
+            ],
+            "properties": {
+              "A": {
+                "type": "integer",
+                "description": "The area of one plate of the capacitor in square meters."
+              },
+              "d": {
+                "type": "number",
+                "description": "The distance between the two plates in meters."
+              },
+              "K": {
+                "type": "number",
+                "description": "The dielectric constant (default is 1.0 for free space, optional)."
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "magnetic_field.calculate",
+          "description": "Calculate the magnetic field based on the current flowing and the radial distance.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "I",
+              "r"
+            ],
+            "properties": {
+              "I": {
+                "type": "number",
+                "description": "The electric current flowing in Amperes."
+              },
+              "r": {
+                "type": "number",
+                "description": "The radial distance from the line of current in meters."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "capacitance_calculator.calculate",
+          "arguments": {
+            "A": [
+              10
+            ],
+            "d": [
+              0.01
+            ],
+            "K": [
+              1.0,
+              ""
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "How to assess the population growth in deer and their impact on woodland in Washington state over the past decade?",
+    "target": null,
+    "id": "multiple_7",
+    "task": "bfcl_multiple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "multiple_7",
+      "bfcl_category": "multiple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "wildlife_population.assess_growth",
+          "description": "Assesses the population growth of a specific species in a specified location over a period.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "species",
+              "location",
+              "duration"
+            ],
+            "properties": {
+              "species": {
+                "type": "string",
+                "description": "The species for which the growth is to be calculated."
+              },
+              "location": {
+                "type": "string",
+                "description": "The area where the species is present."
+              },
+              "duration": {
+                "type": "integer",
+                "description": "The time period for which the population growth should be calculated in years."
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "ecological_impact.analyze",
+          "description": "Analyzes the impact of a species on a particular ecosystem.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "species",
+              "ecosystem",
+              "location"
+            ],
+            "properties": {
+              "species": {
+                "type": "string",
+                "description": "The species whose impact is to be calculated."
+              },
+              "ecosystem": {
+                "type": "string",
+                "description": "The ecosystem being affected."
+              },
+              "location": {
+                "type": "string",
+                "description": "The area where the impact is analyzed."
+              },
+              "timeframe": {
+                "type": "integer",
+                "description": "The time period for which the impact analysis should be carried out in years.",
+                "default": 5
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "wildlife_population.assess_growth",
+          "arguments": {
+            "species": [
+              "deer",
+              "Deer"
+            ],
+            "location": [
+              "Washington state",
+              "WA",
+              "Washington"
+            ],
+            "duration": [
+              10
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "Find a 3 bedroom villa for sale within $300,000 to $400,000 budget in San Diego.",
+    "target": null,
+    "id": "multiple_8",
+    "task": "bfcl_multiple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "multiple_8",
+      "bfcl_category": "multiple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "property_valuation.get",
+          "description": "Get estimated value of a property based on location, specifications and age",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "location",
+              "propertyType",
+              "bedrooms",
+              "age"
+            ],
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "City and state where the property is located, e.g. San Diego, CA."
+              },
+              "propertyType": {
+                "type": "string",
+                "description": "Type of property such as villa, condo, apartment, etc."
+              },
+              "bedrooms": {
+                "type": "integer",
+                "description": "Number of bedrooms required in the property."
+              },
+              "age": {
+                "type": "integer",
+                "description": "Age of the property in years."
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "realestate.find_properties",
+          "description": "Find properties based on location, budget, and specifications",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "location",
+              "propertyType",
+              "bedrooms",
+              "budget"
+            ],
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "City and state where the property is located, e.g. San Diego, CA."
+              },
+              "propertyType": {
+                "type": "string",
+                "description": "Type of property such as villa, condo, apartment, etc."
+              },
+              "bedrooms": {
+                "type": "integer",
+                "description": "Number of bedrooms required in the property."
+              },
+              "budget": {
+                "type": "object",
+                "description": "Budget range for the property.",
+                "properties": {
+                  "min": {
+                    "type": "number",
+                    "description": "Minimum budget limit."
+                  },
+                  "max": {
+                    "type": "number",
+                    "description": "Maximum budget limit."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "realestate.find_properties",
+          "arguments": {
+            "location": [
+              "SD",
+              "San Diego",
+              "San Diego, CA",
+              "CA"
+            ],
+            "propertyType": [
+              "villa"
+            ],
+            "bedrooms": [
+              3
+            ],
+            "budget": [
+              {
+                "min": [
+                  300000
+                ],
+                "max": [
+                  400000
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "Calculate the average grade for student John who has these scores {'math':90, 'science':75, 'history':82, 'music':89} across different subjects.",
+    "target": null,
+    "id": "multiple_9",
+    "task": "bfcl_multiple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "multiple_9",
+      "bfcl_category": "multiple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "calculate_standard_deviation",
+          "description": "This function calculates the standard deviation across different scores for a specific student.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "gradeDict"
+            ],
+            "properties": {
+              "gradeDict": {
+                "type": "object",
+                "description": "A dictionary where keys represent subjects and values represent scores"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "calculate_average",
+          "description": "This function calculates the average grade across different subjects for a specific student.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "gradeDict"
+            ],
+            "properties": {
+              "gradeDict": {
+                "type": "object",
+                "description": "A dictionary where keys represent subjects and values represent scores"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "highest_grade",
+          "description": "This function finds the subject where the student got the highest score.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "gradeDict"
+            ],
+            "properties": {
+              "gradeDict": {
+                "type": "object",
+                "description": "A dictionary where keys represent subjects and values represent scores"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "calculate_average",
+          "arguments": {
+            "gradeDict": [
+              {
+                "math": [
+                  90
+                ],
+                "science": [
+                  75
+                ],
+                "history": [
+                  82
+                ],
+                "music": [
+                  89
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "I need to delete some columns from my employees database on personal_data table. I want to remove their email addresses and social security numbers to respect privacy.",
+    "target": null,
+    "id": "multiple_10",
+    "task": "bfcl_multiple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "multiple_10",
+      "bfcl_category": "multiple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "database.modify_columns",
+          "description": "This function allows deletion or addition of columns in a database",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "db_name",
+              "table",
+              "operation",
+              "columns"
+            ],
+            "properties": {
+              "db_name": {
+                "type": "string",
+                "description": "The name of the database to modify."
+              },
+              "table": {
+                "type": "string",
+                "description": "The name of the table to modify."
+              },
+              "operation": {
+                "type": "string",
+                "description": "The operation to carry out on the table. Can be 'delete' or 'add'."
+              },
+              "columns": {
+                "type": "array",
+                "description": "List of the columns to add or delete from the table.",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "database.create_backup",
+          "description": "This function creates a backup of the database before modification",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "db_name",
+              "backup_location"
+            ],
+            "properties": {
+              "db_name": {
+                "type": "string",
+                "description": "The name of the database to create a backup of."
+              },
+              "backup_location": {
+                "type": "string",
+                "description": "The file path where the backup should be stored."
+              },
+              "timestamp": {
+                "type": "boolean",
+                "description": "Option to append a timestamp to the backup file name.",
+                "default": "False"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "database.modify_columns",
+          "arguments": {
+            "db_name": [
+              "employees"
+            ],
+            "table": [
+              "personal_data"
+            ],
+            "operation": [
+              "delete"
+            ],
+            "columns": [
+              [
+                "email",
+                "ssn"
+              ],
+              [
+                "ssn",
+                "email"
+              ],
+              [
+                "email",
+                "social_security_number"
+              ],
+              [
+                "social_security_number",
+                "email"
+              ],
+              [
+                "email",
+                "social security number"
+              ],
+              [
+                "social security number",
+                "email"
+              ]
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  },
+  {
+    "input": "Calculate the roots of a quadratic equation with coefficients 5, 20, and -25",
+    "target": null,
+    "id": "multiple_11",
+    "task": "bfcl_multiple",
+    "kind": "generative",
+    "choices": null,
+    "retrieval_context": null,
+    "metadata": {
+      "bfcl_id": "multiple_11",
+      "bfcl_category": "multiple",
+      "bfcl_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+    },
+    "tags": [],
+    "actual_output": null,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "math_roots.quadratic",
+          "description": "Calculate the roots of a quadratic equation.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "a",
+              "b",
+              "c"
+            ],
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": "Coefficient of the second-degree term."
+              },
+              "b": {
+                "type": "integer",
+                "description": "Coefficient of the first-degree term."
+              },
+              "c": {
+                "type": "integer",
+                "description": "Constant term."
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "math.roots.cubic",
+          "description": "Calculate the roots of a cubic equation.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "a",
+              "b",
+              "c",
+              "d"
+            ],
+            "properties": {
+              "a": {
+                "type": "number",
+                "description": "Coefficient of the third-degree term."
+              },
+              "b": {
+                "type": "number",
+                "description": "Coefficient of the second-degree term."
+              },
+              "c": {
+                "type": "number",
+                "description": "Coefficient of the first-degree term."
+              },
+              "d": {
+                "type": "number",
+                "description": "Constant term."
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "math.roots.polynomial",
+          "description": "Calculate the roots of a polynomial equation.",
+          "parameters": {
+            "type": "object",
+            "required": [
+              "coefficients"
+            ],
+            "properties": {
+              "coefficients": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "Array of coefficients of the polynomial equation starting from highest degree term."
+              },
+              "degree": {
+                "type": "integer",
+                "description": "Degree of the polynomial equation. Default 0"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "expected_tool_calls": [
+      [
+        {
+          "name": "math_roots.quadratic",
+          "arguments": {
+            "a": [
+              5
+            ],
+            "b": [
+              20
+            ],
+            "c": [
+              -25
+            ]
+          }
+        }
+      ]
+    ],
+    "reference_contexts": null,
+    "actual_trace": null,
+    "images": null
+  }
+]

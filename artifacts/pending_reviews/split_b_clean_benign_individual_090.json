@@ -1,0 +1,11 @@
+{
+  "case_id": "split_b_clean_benign_individual_090",
+  "trajectory_id": "traj_split_b_clean_benign_individual_090_34b42e",
+  "verdict": "REVIEW",
+  "customer_name": "Marcus Nakamura",
+  "escalation_reasons": [
+    "CLEAN_VERIFIED"
+  ],
+  "agent_reason": "All required FinCEN/OFAC/FATF checks passed with no unresolved matches.",
+  "oracle_verdict": "APPROVE"
+}

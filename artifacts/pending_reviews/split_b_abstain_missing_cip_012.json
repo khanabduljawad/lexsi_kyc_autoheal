@@ -1,0 +1,11 @@
+{
+  "case_id": "split_b_abstain_missing_cip_012",
+  "trajectory_id": "traj_split_b_abstain_missing_cip_012_c8235e",
+  "verdict": "REVIEW",
+  "customer_name": "Hannah Patel",
+  "escalation_reasons": [
+    "CIP_INCOMPLETE"
+  ],
+  "agent_reason": "late",
+  "oracle_verdict": "REVIEW"
+}

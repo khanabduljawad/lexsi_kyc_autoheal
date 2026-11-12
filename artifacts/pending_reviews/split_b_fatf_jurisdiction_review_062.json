@@ -1,0 +1,11 @@
+{
+  "case_id": "split_b_fatf_jurisdiction_review_062",
+  "trajectory_id": "traj_split_b_fatf_jurisdiction_review_062_ccbc4d",
+  "verdict": "REVIEW",
+  "customer_name": "Priya Bennett",
+  "escalation_reasons": [
+    "JURISDICTION_EDD:FATF_GREY_LIST:PH"
+  ],
+  "agent_reason": "Priya Bennett (PH) [JURISDICTION_EDD:FATF_GREY_LIST:PH] -> REVIEW.",
+  "oracle_verdict": "REVIEW"
+}

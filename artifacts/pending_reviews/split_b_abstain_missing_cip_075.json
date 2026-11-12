@@ -1,0 +1,11 @@
+{
+  "case_id": "split_b_abstain_missing_cip_075",
+  "trajectory_id": "traj_split_b_abstain_missing_cip_075_79a8cc",
+  "verdict": "REVIEW",
+  "customer_name": "Priya Lindqvist",
+  "escalation_reasons": [
+    "CIP_INCOMPLETE"
+  ],
+  "agent_reason": "late",
+  "oracle_verdict": "REVIEW"
+}

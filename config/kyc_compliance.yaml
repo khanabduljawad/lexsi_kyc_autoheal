@@ -1,0 +1,105 @@
+id: kyc_compliance_v1
+name: AutoHeal-KYC FinCEN/FATF/OFAC Compliance Pipeline
+version: "2.0.0"
+description: >
+  Four-stage FinCEN 31 CFR 1020.220 / CDD-EDD / FATF / OFAC screening pipeline
+  executed via AgentTune GraphRunner (rules, prompt-mode LLM tool screening,
+  deterministic SafeEvaluator router, and file-destination output stages).
+initial_stage: extract_cip
+
+stages:
+  - id: extract_cip
+    name: Extract Deterministic CIP & Dossier Attributes
+    type: rules
+    next: cip_deterministic_gate
+    rules: []
+
+  - id: cip_deterministic_gate
+    name: FinCEN CIP Completeness Gate
+    type: rules
+    next: watchlist_screening_agent
+    rules:
+      - condition: "extract_cip.output.cip_complete == true"
+        on_fail:
+          goto: route_review
+          inject: "CIP incomplete; abstain from watchlist tools and escalate to REVIEW."
+      - condition: "extract_cip.output.country_iso2_valid == true"
+        on_fail:
+          goto: route_review
+          inject: "Country ISO-2 validation failed; route to CIP remediation REVIEW."
+      - condition: "extract_cip.output.dob_format_valid == true"
+        on_fail:
+          goto: route_review
+          inject: "DOB YYYY-MM-DD validation failed; route to CIP remediation REVIEW."
+
+  - id: watchlist_screening_agent
+    name: Bounded Prompt-Mode Watchlist & Jurisdiction Screening Agent
+    type: llm_call
+    next: fincen_cdd_edd_oracle_and_router
+    max_steps: 6
+    tools:
+      - screen_sanctions
+      - screen_export_control
+      - screen_pep_adverse_media
+      - check_fatf_jurisdiction_risk
+      - screen_crypto_wallet
+      - verify_source_of_wealth
+    prompt: |
+      Run required FinCEN/FATF/OFAC screening tools for the validated CIP dossier.
+      Rules:
+      1. Always pass uppercase 2-letter ISO-2 country codes (e.g. US, GB, KY), never USA or UK.
+      2. Pass date_of_birth as YYYY-MM-DD when available for false-positive disambiguation.
+      3. Call screen_crypto_wallet ONLY when a crypto_wallet address exists.
+      4. Call verify_source_of_wealth for high assets/velocity or offshore secrecy hubs.
+      5. Never repeat an identical tool call that returned NOT_FOUND.
+
+  - id: fincen_cdd_edd_oracle_and_router
+    name: FinCEN CDD/EDD Deterministic Disposition Router
+    type: router
+    model: null
+    default: route_review
+    on_result:
+      - condition: 'watchlist_screening_agent.output.resolved_verdict == "DENY"'
+        goto: route_deny
+      - condition: 'watchlist_screening_agent.output.resolved_verdict == "REVIEW"'
+        goto: route_review
+      - condition: 'watchlist_screening_agent.output.resolved_verdict == "APPROVE"'
+        goto: route_approve
+      - condition: "watchlist_screening_agent.output.sanctions_or_wallet_match == true"
+        goto: route_deny
+      - condition: "watchlist_screening_agent.output.weak_alias_review == true"
+        goto: route_review
+      - condition: "watchlist_screening_agent.output.edd_required == true"
+        goto: route_review
+      - condition: "watchlist_screening_agent.output.bo_verification_required == true"
+        goto: route_review
+
+  - id: route_approve
+    name: Compliance Approve Output
+    type: output
+    verdict: APPROVE
+    verdict_label: APPROVED
+    confidence: 0.95
+    reason: Verified clean across mandatory OFAC/UN/EU, PEP, and FATF checks.
+    destinations:
+      - file
+
+  - id: route_review
+    name: Compliance Manual EDD/CIP Review Queue
+    type: output
+    verdict: REVIEW
+    verdict_label: MANUAL_REVIEW_REQUIRED
+    confidence: 0.90
+    reason: Escalated for human EDD, weak-alias verification, or CIP remediation.
+    destinations:
+      - file
+
+  - id: route_deny
+    name: Prohibited Sanctions/Export/Wallet Deny
+    type: output
+    verdict: DENY
+    verdict_label: PROHIBITED_DENY
+    confidence: 0.99
+    reason: Confirmed OFAC/UN/EU sanctions, BIS denied party, or sanctioned wallet match.
+    destinations:
+      - file

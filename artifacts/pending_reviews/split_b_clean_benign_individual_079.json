@@ -1,0 +1,11 @@
+{
+  "case_id": "split_b_clean_benign_individual_079",
+  "trajectory_id": "traj_split_b_clean_benign_individual_079_5ee519",
+  "verdict": "REVIEW",
+  "customer_name": "Hannah Nakamura",
+  "escalation_reasons": [
+    "CLEAN_VERIFIED"
+  ],
+  "agent_reason": "All required FinCEN/OFAC/FATF checks passed with no unresolved matches.",
+  "oracle_verdict": "APPROVE"
+}

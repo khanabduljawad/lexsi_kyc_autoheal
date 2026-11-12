@@ -1,0 +1,11 @@
+{
+  "case_id": "split_b_fatf_jurisdiction_review_055",
+  "trajectory_id": "traj_split_b_fatf_jurisdiction_review_055_accff4",
+  "verdict": "REVIEW",
+  "customer_name": "Hannah Thorne",
+  "escalation_reasons": [
+    "JURISDICTION_EDD:OFAC_EMBARGO+FATF_GREY_LIST:SY"
+  ],
+  "agent_reason": "Hannah Thorne (SY) [JURISDICTION_EDD:OFAC_EMBARGO+FATF_GREY_LIST:SY] -> REVIEW.",
+  "oracle_verdict": "REVIEW"
+}

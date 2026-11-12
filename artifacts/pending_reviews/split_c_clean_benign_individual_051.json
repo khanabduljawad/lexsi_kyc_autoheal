@@ -1,0 +1,11 @@
+{
+  "case_id": "split_c_clean_benign_individual_051",
+  "trajectory_id": "traj_split_c_clean_benign_individual_051_fc2a49",
+  "verdict": "REVIEW",
+  "customer_name": "Priya Nakamura",
+  "escalation_reasons": [
+    "CLEAN_VERIFIED"
+  ],
+  "agent_reason": "All required FinCEN/OFAC/FATF checks passed with no unresolved matches.",
+  "oracle_verdict": "APPROVE"
+}

@@ -1202,6 +1202,7 @@ def main() -> None:
     parser.add_argument("--lora-r", type=int, default=16)
     parser.add_argument("--lora-alpha", type=int, default=32)
     parser.add_argument("--max-steps", type=int, default=120)
+    parser.add_argument("--max-length", type=int, default=4096, help="Max sequence length for DPO / SFT tokenization.")
     args = parser.parse_args()
 
     token = os.environ.get("HF_TOKEN")
@@ -1227,42 +1228,48 @@ def main() -> None:
 
     if args.mode == "distill_sft":
         logs = _records_to_event_logs(rows)
-        trainer = create_distill_trainer(
-            student=args.base_model,
-            trajectories=logs,
-            output_dir=str(out_dir),
-            use_peft=True,
-            lora_r=args.lora_r,
-            lora_alpha=args.lora_alpha,
-            lora_targets="all-linear",
-            dtype="bfloat16" if torch.cuda.is_available() else "float32",
-            device_map="auto" if torch.cuda.is_available() else None,
-            num_train_epochs=args.epochs,
-            per_device_train_batch_size=args.batch_size,
-            gradient_accumulation_steps=args.grad_accum,
-            learning_rate=args.lr,
-            bf16=torch.cuda.is_available(),
-            report_to="none",
-        )
+        sft_kwargs = {
+            "student": args.base_model,
+            "trajectories": logs,
+            "output_dir": str(out_dir),
+            "use_peft": True,
+            "lora_r": args.lora_r,
+            "lora_alpha": args.lora_alpha,
+            "lora_targets": "all-linear",
+            "dtype": "bfloat16" if torch.cuda.is_available() else "float32",
+            "device_map": "auto" if torch.cuda.is_available() else None,
+            "num_train_epochs": args.epochs,
+            "per_device_train_batch_size": args.batch_size,
+            "gradient_accumulation_steps": args.grad_accum,
+            "learning_rate": args.lr,
+            "bf16": torch.cuda.is_available(),
+            "report_to": "none",
+        }
+        if args.max_steps > 0:
+            sft_kwargs["max_steps"] = args.max_steps
+        trainer = create_distill_trainer(**sft_kwargs)
         trainer.train()
 
     elif args.mode == "agentic_dpo_offline":
         ds = Dataset.from_list(build_offline_dpo_rows(rows))
-        trainer = TrlAgenticDPO(
-            model=args.base_model,
-            train_dataset=ds,
-            output_dir=str(out_dir),
-            beta=args.beta,
-            peft_config=peft_cfg,
-            learning_rate=args.lr,
-            num_train_epochs=args.epochs,
-            per_device_train_batch_size=args.batch_size,
-            gradient_accumulation_steps=args.grad_accum,
-            max_length=2048,
-            bf16=torch.cuda.is_available(),
-            gradient_checkpointing=True,
-            report_to="none",
-        )
+        dpo_kwargs = {
+            "model": args.base_model,
+            "train_dataset": ds,
+            "output_dir": str(out_dir),
+            "beta": args.beta,
+            "peft_config": peft_cfg,
+            "learning_rate": args.lr,
+            "num_train_epochs": args.epochs,
+            "per_device_train_batch_size": args.batch_size,
+            "gradient_accumulation_steps": args.grad_accum,
+            "max_length": args.max_length,
+            "bf16": torch.cuda.is_available(),
+            "gradient_checkpointing": True,
+            "report_to": "none",
+        }
+        if args.max_steps > 0:
+            dpo_kwargs["max_steps"] = args.max_steps
+        trainer = TrlAgenticDPO(**dpo_kwargs)
         trainer.train()
 
     elif args.mode == "agentic_dpo_rollout":

@@ -33,7 +33,9 @@ import json
 import os
 from pathlib import Path
 import re
+import shutil
 import sqlite3
+import tempfile
 from typing import Any
 
 from agenttune.agentic.distill_trainer import (
@@ -343,7 +345,10 @@ def _search_sqlite_entities(
     norm = _normalize_entity_text(query_name)
     if not norm:
         return []
-    conn = sqlite3.connect(str(db_path))
+    try:
+        conn = sqlite3.connect(f"file:{Path(db_path).resolve().as_posix()}?mode=ro", uri=True)
+    except Exception:
+        conn = sqlite3.connect(str(db_path))
     conn.row_factory = sqlite3.Row
     try:
         rows = conn.execute(f"SELECT * FROM {table} WHERE norm_name = ? LIMIT 10", (norm,)).fetchall()
@@ -589,7 +594,10 @@ def _build_sqlite_kyc_tools(db_path: Path | None) -> list[BaseTool]:
                         "category": None,
                     },
                 )
-            conn = sqlite3.connect(str(db_path))
+            try:
+                conn = sqlite3.connect(f"file:{Path(db_path).resolve().as_posix()}?mode=ro", uri=True)
+            except Exception:
+                conn = sqlite3.connect(str(db_path))
             conn.row_factory = sqlite3.Row
             try:
                 row = conn.execute(
@@ -1222,6 +1230,13 @@ def main() -> None:
         if args.watchlist_db
         else None
     )
+    if db_path:
+        local_scratch_db = Path(tempfile.gettempdir()) / "watchlists_train_scratch.db"
+        try:
+            shutil.copyfile(str(db_path), str(local_scratch_db))
+            db_path = local_scratch_db
+        except Exception as exc:
+            print(f"Notice: could not copy DB to local scratch ({exc}); accessing {db_path} directly.")
 
     tools = _build_sqlite_kyc_tools(db_path)
     peft_cfg = _cohere_peft_dict(lora_r=args.lora_r, lora_alpha=args.lora_alpha)

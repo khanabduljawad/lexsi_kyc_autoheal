@@ -33,7 +33,9 @@ import json
 import os
 from pathlib import Path
 import re
+import shutil
 import sqlite3
+import tempfile
 import time
 from typing import Any
 
@@ -267,7 +269,10 @@ def _search_sqlite_entities(
     norm = _normalize_entity_text(query_name)
     if not norm:
         return []
-    conn = sqlite3.connect(str(db_path))
+    try:
+        conn = sqlite3.connect(f"file:{Path(db_path).resolve().as_posix()}?mode=ro", uri=True)
+    except Exception:
+        conn = sqlite3.connect(str(db_path))
     conn.row_factory = sqlite3.Row
     try:
         rows = conn.execute(f"SELECT * FROM {table} WHERE norm_name = ? LIMIT 10", (norm,)).fetchall()
@@ -416,7 +421,10 @@ def query_sqlite_tool(db_path: Path, tool_name: str, args: dict[str, Any]) -> di
     if tool_name == "screen_crypto_wallet":
         addr = str(args["wallet_address"]).strip()
         curr = str(args["currency"]).strip().upper()
-        conn = sqlite3.connect(str(db_path))
+        try:
+            conn = sqlite3.connect(f"file:{Path(db_path).resolve().as_posix()}?mode=ro", uri=True)
+        except Exception:
+            conn = sqlite3.connect(str(db_path))
         conn.row_factory = sqlite3.Row
         try:
             row = conn.execute(
@@ -588,6 +596,14 @@ def main() -> None:
     token = os.environ.get("HF_TOKEN")
     split_path = resolve_input_file(args.split_c, "split_c.jsonl", token)
     db_path = resolve_input_file(args.watchlist_db, "watchlists.db", token)
+
+    local_scratch_db = Path(tempfile.gettempdir()) / "watchlists_eval_scratch.db"
+    try:
+        shutil.copyfile(str(db_path), str(local_scratch_db))
+        db_path = local_scratch_db
+        print(f"Copied SQLite watchlists to local scratch: {db_path} ({db_path.stat().st_size} bytes)")
+    except Exception as exc:
+        print(f"Notice: could not copy DB to local scratch ({exc}); accessing {db_path} directly.")
 
     cases = [
         json.loads(line)

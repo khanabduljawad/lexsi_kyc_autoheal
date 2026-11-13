@@ -47,6 +47,7 @@ def main() -> None:
     parser.add_argument("--beta", type=float, default=0.1, help="DPO beta.")
     parser.add_argument("--max-length", type=int, default=4096, help="Max sequence length.")
     parser.add_argument("--push-to-hub", type=str, default=None, help="Optional HF repo ID to push adapter.")
+    parser.add_argument("--timeout", type=str, default="2h", help="Job max duration timeout (default: 2h).")
     parser.add_argument("--detach", action="store_true", help="Submit job and return immediately without streaming.")
     parser.add_argument("--dry-run", action="store_true", help="Print command without submitting.")
     args = parser.parse_args()
@@ -90,6 +91,8 @@ def main() -> None:
         args.flavor,
         "-e",
         "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+        "--timeout",
+        args.timeout,
         "--secrets",
         "HF_TOKEN",
         "-v",

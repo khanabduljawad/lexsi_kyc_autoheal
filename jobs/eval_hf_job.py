@@ -483,7 +483,7 @@ def render_and_generate(
     model: Any,
     tokenizer: Any,
     messages: list[dict[str, Any]],
-    max_new_tokens: int = 384,
+    max_new_tokens: int = 256,
     temperature: float = 0.0,
 ) -> tuple[str, int]:
     """Render Cohere prompt-mode conversation cleanly and generate response + token count."""
@@ -654,7 +654,7 @@ def main() -> None:
 
     for t_idx in range(n_trials):
         temp = 0.0 if t_idx == 0 else 0.2
-        for case in cases:
+        for c_idx, case in enumerate(cases):
             cid = str(case.get("case_id", ""))
             policy = _evaluate_cip_and_policy(case)
             messages: list[dict[str, Any]] = [
@@ -730,6 +730,14 @@ def main() -> None:
             passed = (predicted_verdict == expected_v) and (not had_tool_err) and (not is_loop) and policy_ok
             per_case_verdicts.setdefault(cid, []).append(SUCCESS if passed else FAILURE)
 
+            if (c_idx + 1) % 5 == 0 or (c_idx + 1) == len(cases):
+                print(
+                    f"[{t_idx+1}/{n_trials}] Case {c_idx+1:02d}/{len(cases)} ({cid}) "
+                    f"pred={predicted_verdict:<7} exp={expected_v:<7} pass={str(passed):<5} "
+                    f"loop={str(is_loop):<5} pol={str(policy_ok):<5} lat={elapsed_ms:.0f}ms",
+                    flush=True,
+                )
+
             if t_idx == 0:
                 if predicted_verdict == "PARSE_ERROR":
                     trial_1_parse_errors += 1
@@ -771,6 +779,7 @@ def main() -> None:
                         "latency_ms": round(elapsed_ms, 2),
                     }
                 )
+        print(f"--- Completed Trial {t_idx+1}/{n_trials} ---", flush=True)
 
     loop_free_pred = CustomPredicate(
         lambda ep, c=None: not bool((getattr(ep, "final_state", None) or {}).get("loop_collapse")),

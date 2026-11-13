@@ -30,6 +30,7 @@ def main() -> None:
     parser.add_argument("--base-model", type=str, default="CohereLabs/tiny-aya-global", help="Base model repo ID.")
     parser.add_argument("--flavor", default="l4x1", help="Hardware flavor (default: l4x1).")
     parser.add_argument("--trials", type=int, default=3, help="Number of trials for pass@k.")
+    parser.add_argument("--timeout", type=str, default="2h", help="Job max duration timeout (default: 2h).")
     parser.add_argument("--max-cases", type=int, default=60, help="Max test cases from Split C (default: 60).")
     parser.add_argument("--skip-bfcl", action="store_true", default=True, help="Skip BFCL benchmark.")
     parser.add_argument("--output-json", type=str, default="eval_results.json", help="Output results file name.")
@@ -51,6 +52,8 @@ def main() -> None:
         args.flavor,
         "-e",
         "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+        "--timeout",
+        args.timeout,
         "--secrets",
         "HF_TOKEN",
         "-v",

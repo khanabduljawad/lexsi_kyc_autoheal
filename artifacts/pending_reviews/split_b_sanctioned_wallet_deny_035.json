@@ -1,0 +1,11 @@
+{
+  "case_id": "split_b_sanctioned_wallet_deny_035",
+  "trajectory_id": "traj_split_b_sanctioned_wallet_deny_035_09eb17",
+  "verdict": "REVIEW",
+  "customer_name": "Digital Treasury Client 0010",
+  "escalation_reasons": [
+    "SANCTIONED_CRYPTO_WALLET:BTC"
+  ],
+  "agent_reason": "Confirmed sanctions/export/wallet prohibition: SANCTIONED_CRYPTO_WALLET:BTC.",
+  "oracle_verdict": "DENY"
+}

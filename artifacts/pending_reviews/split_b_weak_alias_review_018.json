@@ -1,0 +1,11 @@
+{
+  "case_id": "split_b_weak_alias_review_018",
+  "trajectory_id": "traj_split_b_weak_alias_review_018_faff2a",
+  "verdict": "REVIEW",
+  "customer_name": "AMSHA, Abu",
+  "escalation_reasons": [
+    "CLEAN_VERIFIED"
+  ],
+  "agent_reason": "All required FinCEN/OFAC/FATF checks passed with no unresolved matches.",
+  "oracle_verdict": "APPROVE"
+}

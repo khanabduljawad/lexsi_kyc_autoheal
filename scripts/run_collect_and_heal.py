@@ -445,7 +445,10 @@ def main() -> None:
         synthesizer = None
 
     runner = KYCAgentRunner(adapter=adapter, config=cfg, tool_mode=tool_mode)
-    runs = [runner.run_case(c) for c in cases]
+    runs = []
+    for idx, c in enumerate(cases):
+        print(f"[{idx+1}/{len(cases)}] Case {c.get('case_id')} ({c.get('scenario_tag')})...", flush=True)
+        runs.append(runner.run_case(c))
 
     args.runs_out.parent.mkdir(parents=True, exist_ok=True)
     serializable = [{k: v for k, v in r.items() if k not in {"episode", "event_log"}} for r in runs]

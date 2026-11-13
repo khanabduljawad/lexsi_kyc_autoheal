@@ -1,0 +1,14 @@
+{
+  "case_id": "split_b_offshore_sow_review_017",
+  "trajectory_id": "traj_split_b_offshore_sow_review_017_0cb6b0",
+  "verdict": "REVIEW",
+  "customer_name": "Marcus Fischer",
+  "escalation_reasons": [
+    "SOW:ASSETS_DISPROPORTIONATE_TO_INCOME",
+    "SOW:TX_VELOCITY_DISPROPORTIONATE_TO_INCOME",
+    "SOW:UNVERIFIED_OR_HIGH_RISK_SOW",
+    "SOW:OFFSHORE_SOW_NEXUS:BM"
+  ],
+  "agent_reason": "FinCEN CDD/EDD escalation required: SOW:ASSETS_DISPROPORTIONATE_TO_INCOME, SOW:TX_VELOCITY_DISPROPORTIONATE_TO_INCOME, SOW:UNVERIFIED_OR_HIGH_RISK_SOW, SOW:OFFSHORE_SOW_NEXUS:BM.",
+  "oracle_verdict": "REVIEW"
+}

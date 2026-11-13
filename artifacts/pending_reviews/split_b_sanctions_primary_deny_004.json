@@ -1,0 +1,11 @@
+{
+  "case_id": "split_b_sanctions_primary_deny_004",
+  "trajectory_id": "traj_split_b_sanctions_primary_deny_004_7924af",
+  "verdict": "REVIEW",
+  "customer_name": "ANTIQUA DEL CARIBE S.A.S.",
+  "escalation_reasons": [
+    "JURISDICTION_EDD:FATF_BLACK_LIST+OFAC_EMBARGO:IR"
+  ],
+  "agent_reason": "FinCEN CDD/EDD escalation required: JURISDICTION_EDD:FATF_BLACK_LIST+OFAC_EMBARGO:IR.",
+  "oracle_verdict": "REVIEW"
+}

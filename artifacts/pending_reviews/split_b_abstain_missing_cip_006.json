@@ -1,11 +1,11 @@
 {
   "case_id": "split_b_abstain_missing_cip_006",
-  "trajectory_id": "traj_split_b_abstain_missing_cip_006_508a58",
+  "trajectory_id": "traj_split_b_abstain_missing_cip_006_ce2cef",
   "verdict": "REVIEW",
   "customer_name": "Priya Patel",
   "escalation_reasons": [
     "CIP_INCOMPLETE"
   ],
-  "agent_reason": "late",
+  "agent_reason": "Missing/invalid CIP fields ['date_of_birth', 'id_number']; abstain from screening and escalate to CIP remediation REVIEW.",
   "oracle_verdict": "REVIEW"
 }

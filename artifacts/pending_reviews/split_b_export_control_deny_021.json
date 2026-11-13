@@ -1,0 +1,11 @@
+{
+  "case_id": "split_b_export_control_deny_021",
+  "trajectory_id": "traj_split_b_export_control_deny_021_d7834b",
+  "verdict": "REVIEW",
+  "customer_name": "TINA CHEN",
+  "escalation_reasons": [
+    "CLEAN_VERIFIED"
+  ],
+  "agent_reason": "All required FinCEN/OFAC/FATF checks passed with no unresolved matches.",
+  "oracle_verdict": "APPROVE"
+}

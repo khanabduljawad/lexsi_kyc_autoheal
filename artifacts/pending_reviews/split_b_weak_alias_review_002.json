@@ -1,0 +1,11 @@
+{
+  "case_id": "split_b_weak_alias_review_002",
+  "trajectory_id": "traj_split_b_weak_alias_review_002_af2f22",
+  "verdict": "REVIEW",
+  "customer_name": "INDUSTRIX",
+  "escalation_reasons": [
+    "CLEAN_VERIFIED"
+  ],
+  "agent_reason": "All required FinCEN/OFAC/FATF checks passed with no unresolved matches.",
+  "oracle_verdict": "APPROVE"
+}

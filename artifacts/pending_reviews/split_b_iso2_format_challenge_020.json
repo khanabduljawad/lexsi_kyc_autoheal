@@ -1,0 +1,11 @@
+{
+  "case_id": "split_b_iso2_format_challenge_020",
+  "trajectory_id": "traj_split_b_iso2_format_challenge_020_79994a",
+  "verdict": "REVIEW",
+  "customer_name": "Johnson Group Enterprise Payments",
+  "escalation_reasons": [
+    "CLEAN_VERIFIED"
+  ],
+  "agent_reason": "All required FinCEN/OFAC/FATF checks passed with no unresolved matches.",
+  "oracle_verdict": "APPROVE"
+}

@@ -1,0 +1,12 @@
+{
+  "case_id": "split_b_dob_disambiguation_clean_022",
+  "trajectory_id": "traj_split_b_dob_disambiguation_clean_022_4cc248",
+  "verdict": "REVIEW",
+  "customer_name": "Paul A. Gosar",
+  "escalation_reasons": [
+    "CLEAN_VERIFIED",
+    "DOB_FALSE_POSITIVE_CLEARED"
+  ],
+  "agent_reason": "The customer, Paul A. Gosar, is identified as a Politically Exposed Person (PEP) with a primary match in the PEP us_congress program. This indicates a potential risk of adverse media or sanctions exposure. Further review is recommended to assess the source of wealth and any potential conflicts of interest.",
+  "oracle_verdict": "APPROVE"
+}

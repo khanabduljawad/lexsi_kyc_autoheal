@@ -1249,6 +1249,13 @@ def main() -> None:
             sft_kwargs["max_steps"] = args.max_steps
         trainer = create_distill_trainer(**sft_kwargs)
         trainer.train()
+        if (
+            hasattr(trainer, "trainer_factory")
+            and getattr(trainer.trainer_factory, "sft_trainer", None) is not None
+        ):
+            trainer.trainer_factory.sft_trainer.save_model(str(out_dir))
+            if getattr(trainer.trainer_factory, "tokenizer", None) is not None:
+                trainer.trainer_factory.tokenizer.save_pretrained(str(out_dir))
 
     elif args.mode == "agentic_dpo_offline":
         ds = Dataset.from_list(build_offline_dpo_rows(rows))

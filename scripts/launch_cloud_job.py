@@ -88,6 +88,8 @@ def main() -> None:
         "run",
         "--flavor",
         args.flavor,
+        "-e",
+        "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
         "--secrets",
         "HF_TOKEN",
         "-v",

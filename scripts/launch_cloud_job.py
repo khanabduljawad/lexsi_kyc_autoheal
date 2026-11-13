@@ -64,9 +64,13 @@ def main() -> None:
         print(f"ERROR: Dataset not found locally at {local_dataset_path}", file=sys.stderr)
         sys.exit(1)
 
-    # In container, volume mounts map ./artifacts -> /artifacts and ./data -> /data
+    # In container, volume mounts map ./artifacts -> /artifacts and ./data -> /kyc_data
+    rel_clean = dataset_rel.replace("\\", "/")
     if local_dataset_path.exists():
-        container_dataset = f"/{dataset_rel.replace('\\', '/')}"
+        if rel_clean.startswith("data/"):
+            container_dataset = f"/kyc_data/{rel_clean[5:]}"
+        else:
+            container_dataset = f"/{rel_clean}"
     else:
         container_dataset = dataset_rel
 
@@ -89,7 +93,7 @@ def main() -> None:
         "-v",
         "./artifacts:/artifacts",
         "-v",
-        "./data:/data",
+        "./data:/kyc_data",
     ]
     if args.detach:
         cmd.append("--detach")

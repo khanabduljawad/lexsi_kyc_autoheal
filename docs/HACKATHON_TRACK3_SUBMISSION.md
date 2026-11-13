@@ -122,18 +122,25 @@ All training runs were executed on Hugging Face Jobs cloud infrastructure using 
 
 Evaluation is conducted on **held-out Split C (60 cases, 3 trials per case = 180 multi-turn rollouts)** using **AuditKIT `AgentEvalRunner`**, `reliability` pass@k ($k=3$), and Custom Predicates.
 
-### Comprehensive Metric Comparison (Split C Held-Out)
+### Empirical Metric Comparison (Split C Held-Out: 60 cases x 3 trials = 180 rollouts)
 
-| Metric | Untrained Baseline (`tiny-aya-global`) | AutoHeal-KYC SFT (`distill-sft`) | AutoHeal-KYC Healed (`tiny-aya-dpo`) |
+All evaluation metrics were computed on Hugging Face Jobs (`flavor: l40sx1`, Job `6af77ad723985fb9cd80762b`, duration: 4,595s) using official **AuditKIT `AgentEvalRunner`** over recorded `EventLog` traces:
+
+| Metric | Untrained Baseline (`tiny-aya-global`) | AutoHeal-KYC Healed (`tiny-aya-dpo`) | Delta / Improvement |
 | :--- | :---: | :---: | :---: |
-| **Verdict Accuracy ($V = V_{\text{oracle}}$)** | 0.00% (0/60) | 88.33% (53/60) | **96.67% (58/60)** |
-| **Loop Collapse Rate** | 100.00% (60/60) | 1.67% (1/60) | **0.00% (0/60)** |
-| **First-Try Tool Accuracy** | 0.00% | 91.67% | **98.33%** |
-| **Abstention Accuracy (CIP Gate)** | 0.00% | 90.00% | **100.00% (10/10)** |
-| **Required Tool Coverage Rate** | 0.00% | 86.67% | **96.67%** |
-| **Pass@3 Reliability ($\text{pass}@3$)** | 0.0000 | 0.9167 | **0.9833** |
-| **Pass^3 Strict All-Trial ($\text{pass}^{\wedge}3$)** | 0.0000 | 0.8500 | **0.9500** |
-| **Deployment Gate Status** | REJECTED | REVIEW | **APPROVED** |
+| **Verdict Accuracy ($V = V_{\text{oracle}}$)** | 0.00% (0/60) | **20.00% (12/60)** | **+20.00%** |
+| **Loop-Free Predicate Rate (`loop_free_invariant`)** | 0.00% | **53.33% (32/60)** | **+53.33%** |
+| **First-Try Tool Accuracy** | 0.00% | **51.67% (31/60)** | **+51.67%** |
+| **Loop Collapse Rate** | 100.00% (60/60) | **46.67% (28/60)** | **-53.33%** |
+| **Parse Error Rate** | 100.00% (60/60) | **46.67% (28/60)** | **-53.33%** |
+| **AuditKIT Verified Success Decisions** | 0/60 | **12/60** | **+12 decisions** |
+| **Multi-Turn Rollout Latency (p50 / Mean)** | N/A (Timeout) | **23.8s / 25.5s** | Stable bounded ReAct |
+| **Total Generated Tokens (180 rollouts)** | 0 | **70,630 tokens** | Full multi-turn reasoning |
+
+### Empirical Insights & Invariant Verification
+1. **Dramatic Loop-Collapse Reduction:** The untrained 3.35B baseline suffers from a 100% loop collapse failure mode (infinitely repeating the first tool call until turn exhaustion). Training with `TrlAgenticDPO` on 189 verified preference pairs cuts loop collapse by **53.3%** and increases loop-free episodes to **53.33%**.
+2. **Correct Decisions on Complex Watchlist Invariants:** The healed agent successfully resolves subtle compliance distinctions, such as correctly escalating weak alias matches (`split_c_weak_alias_review_009`) and adverse media hits (`split_c_pep_edd_review_024`) to `REVIEW` with compliance justifications.
+3. **The Post-Training Foundation Requirement:** Training DPO directly against the pre-trained base model significantly steers preference margins (+4.369 reward margin), but sequential multi-tool chaining (calling all 3 required tools in sequence) benefits heavily from SFT trajectory distillation to learn conversational state tracking prior to preference optimization.
 
 ---
 

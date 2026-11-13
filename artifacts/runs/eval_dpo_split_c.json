@@ -1,0 +1,40 @@
+{
+  "model": "obluda420/autoheal-kyc-tiny-aya-dpo",
+  "base_model": "CohereLabs/tiny-aya-global",
+  "tool_mode": "prompt",
+  "concurrency": 1,
+  "trials": 3,
+  "num_cases": 60,
+  "verdict_accuracy": 0.2,
+  "parse_error_rate": 0.4667,
+  "first_try_tool_accuracy": 0.5167,
+  "abstain_accuracy": 0.0,
+  "required_tool_coverage_rate": 0.0,
+  "loop_collapse_rate": 0.4667,
+  "loop_free_predicate_rate": 0.5333,
+  "reliability": {
+    "mean_pass_at_3": 0.0,
+    "mean_pass_hat_3": 0.0
+  },
+  "perf": {
+    "concurrency": 1,
+    "latency_ms": {
+      "count": 180,
+      "mean": 25528.922516366663,
+      "min": 9700.36796599743,
+      "max": 50669.283871000516,
+      "p50": 23804.445092995593,
+      "p95": 38385.36864299385,
+      "p99": 42871.79184900015,
+      "std": 6350.033942897962
+    },
+    "throughput": {
+      "rps": 0.03917125759455368,
+      "total_requests": 180,
+      "total_time_ms": 4595206.052945999
+    },
+    "total_generated_tokens": 70630
+  },
+  "auditkit_summary": "Agent eval   Mode: recorded   Cases: 60\nVerified success: 12/60 (12/60 decided)   Failure: 48   Unknown outcome: 0   Error: 0   Over budget: 0\nEndpoint errors: 0\nStatus: completed 60\nTrace coverage: full 60, tool names only 0, answer only 0\nTool validity: 0/0 eligible\nMedian latency: n/a          Agent calls: 0",
+  "bfcl_general_regression": null
+}
